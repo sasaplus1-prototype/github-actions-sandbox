@@ -16,6 +16,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - run: env
-      - run: pwd -P
+      - run: pwd
       - run: ls -la
       - run: ls -la /
