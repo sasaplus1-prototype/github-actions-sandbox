@@ -18,9 +18,9 @@ jobs:
       - run: env
       - run: pwd
       - run: ls -la
-        if: ${{ matrix.os != 'windows-latest' }}
+      # if: ${{ matrix.os != 'windows-latest' }}
       - run: ls -la /
-        if: ${{ matrix.os != 'windows-latest' }}
+      # if: ${{ matrix.os != 'windows-latest' }}
       - id: set_data1
         run: echo "::set-output expr=$(expr 1 + 1)"
       - id: set_data2
