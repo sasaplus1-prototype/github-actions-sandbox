@@ -19,3 +19,16 @@ jobs:
       - run: pwd
       - run: ls -la
       - run: ls -la /
+      - id: set_data
+        run: >
+          echo "::set-output expr=$(expr 1 + 1)"
+          echo "::set-output path=${PATH}"
+          echo "::set-output cdir=$(pwd)"
+      - run:
+          echo $EXPR
+          echo $PATH
+          echo $CDIR
+        env:
+          EXPR: ${{ steps.set_data.outputs.expr }}
+          PATH: ${{ steps.set_data.outputs.path }}
+          CDIR: ${{ steps.set_data.outputs.cdir }}
