@@ -27,7 +27,7 @@ jobs:
         run: echo "::set-output name=path::${PATH}"
       - id: set_data3
         run: echo "::set-output name=cdir::$(pwd)"
-      - run:
+      - run: |
           echo $EXPR
           echo $PATH
           echo $CDIR
