@@ -40,3 +40,8 @@ jobs:
       - run: echo "::add-path::/path/to/dir2"
       - run: echo '::add-path::/path/to/dir3'
       - run: echo $PATH | tr ':' '\n'
+      - run: |
+          echo "::add-path::/path/to/dir4"
+          echo "::add-path::/path/to/dir5"
+          echo '::add-path::/path/to/dir6'
+      - run: echo $PATH | tr ':' '\n'
