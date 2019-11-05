@@ -35,3 +35,8 @@ jobs:
           EXPR: ${{ steps.set_data1.outputs.expr }}
           PATH: ${{ steps.set_data2.outputs.path }}
           CDIR: ${{ steps.set_data3.outputs.cdir }}
+      - run: echo $PATH | tr ':' '\n'
+      - run: echo "::add-path::/path/to/dir1"
+      - run: echo "::add-path::/path/to/dir2"
+      - run: echo "::add-path::/path/to/dir3"
+      - run: echo $PATH | tr ':' '\n'
