@@ -45,9 +45,19 @@ jobs:
           echo "::add-path::/path/to/dir5"
           echo '::add-path::/path/to/dir6'
       - run: echo $PATH | tr ':' '\n'
-      - id: boolean_check
+      - id: boolean_check1
         run: echo '::set-output name=flag::true'
       - run: echo true
-        if: steps.boolean_check.outputs.flag == true
+        if: steps.boolean_check1.outputs.flag
       - run: echo true
-        if: steps.boolean_check.outputs.flag == 'true'
+        if: steps.boolean_check1.outputs.flag == true
+      - run: echo true
+        if: steps.boolean_check1.outputs.flag == 'true'
+      - id: boolean_check2
+        run: echo '::set-output name=flag::1'
+      - run: echo true
+        if: steps.boolean_check2.outputs.flag
+      - run: echo true
+        if: steps.boolean_check2.outputs.flag == true
+      - run: echo true
+        if: steps.boolean_check2.outputs.flag == 'true'
