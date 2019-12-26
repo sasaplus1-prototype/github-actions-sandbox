@@ -19,7 +19,7 @@ jobs:
       - uses: actions/github-script@0.3.0
         if: startsWith(github.head_ref, 'auto-assign/')
         env:
-          ASSIGNEES: ${{ steps.pick.assignees }}
+          ASSIGNEES: ${{ steps.pick.outputs.assignees }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
