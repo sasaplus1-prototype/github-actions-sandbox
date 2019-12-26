@@ -1,16 +1,15 @@
 name: Auto assign
 
 on:
-  pull_request:
-    branches:
-      - master
+  - pull_request
 
 jobs:
   auto-assign:
     name: auto assign
+    if: startsWith(github.ref, 'refs/heads/auto-assign/')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: kentaro-m/auto-assign-action@v1.0.1
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
