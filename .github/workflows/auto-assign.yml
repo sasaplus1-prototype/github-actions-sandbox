@@ -8,23 +8,22 @@ jobs:
     name: auto assign
     runs-on: ubuntu-latest
     env:
-      ASSIGNEES: |-
+      MEMBERS: |-
         sasaplus1
-        sasaplus1
-        sasaplus1
-      PEOPLE: 1
+      PEOPLES: 1
     steps:
-      - id: assignees
+      - id: pick
         run: |
-          echo -n "$ASSIGNEES" | sort -R | head -n "$PEOPLE" | xargs printf -- '"%s",' | tee assignees.txt
+          echo -n "$MEMBERS" | sort -R | head -n "$PEOPLES" | xargs printf -- '"%s",' > assignees.txt
           echo "::set-output name=assignees::$(cat assignees.txt)"
       - uses: actions/github-script@0.3.0
         if: startsWith(github.head_ref, 'auto-assign/')
+        env:
+          ASSIGNEES: ${{ steps.pick.assignees }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             github.issues.addAssignees({
               ...context.issue,
-              issue_number: context.issue.number,
-              assignees: [${{ steps.assignees.assignees }}],
+              assignees: [process.env.ASSIGNEES.split(',')],
             });
