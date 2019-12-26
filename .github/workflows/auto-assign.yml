@@ -7,22 +7,24 @@ jobs:
   auto-assign:
     name: auto assign
     runs-on: ubuntu-latest
+    env:
+      ASSIGNEES: |-
+        sasaplus1
+        sasaplus1
+        sasaplus1
+      PEOPLE: 1
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12'
-      - run: npm install -g lodash
+      - id: assignees
+        run: |
+          echo -n "$ASSIGNEES" | sort -R | head -n "$PEOPLE" | xargs printf -- '"%s",' | tee assignees.txt
+          echo "::set-output name=assignees::$(cat assignees.txt)"
       - uses: actions/github-script@0.3.0
         if: startsWith(github.head_ref, 'auto-assign/')
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            // const _ = require('lodash');
-            // const assignees = _.sampleSize([
-            //   'sasaplus1',
-            // ], 1);
             github.issues.addAssignees({
               ...context.issue,
-              assignees: ['sasaplus1']
+              issue_number: context.issue.number,
+              assignees: [${{ steps.assignees.assignees }}],
             });
