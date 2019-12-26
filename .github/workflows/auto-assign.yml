@@ -3,7 +3,7 @@ name: Auto assign
 on:
   pull_request:
     branches:
-      - auto-assign/*
+      - master
 
 jobs:
   auto-assign:
