@@ -18,6 +18,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            const require = global.require || global.process.mainModule.constructor._load
             const _ = require('lodash');
             const assignees = _.sampleSize([
               'sasaplus1',
