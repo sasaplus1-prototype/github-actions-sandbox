@@ -1,0 +1,15 @@
+name: Auto assign
+
+on:
+  pull_request:
+    branches:
+      - auto-assign/*
+
+jobs:
+  auto-assign:
+    name: auto assign
+    runs-on: ubuntu-latest
+    steps:
+      - uses: kentaro-m/auto-assign-action@v1.0.1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
