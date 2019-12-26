@@ -6,13 +6,10 @@ on:
 jobs:
   auto-assign:
     name: auto assign
+    if: startsWith(github.head_ref, 'auto-assign/')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo $GITHUB_REF
-      - run: echo $GITHUB_HEAD_REF
-      - run: echo $GITHUB_BASE_REF
       - uses: kentaro-m/auto-assign-action@v1.0.1
-        if: startsWith(github.ref, 'refs/heads/auto-assign/')
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
