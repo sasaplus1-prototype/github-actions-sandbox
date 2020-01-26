@@ -69,3 +69,6 @@ jobs:
         if: steps.boolean_check3.outputs.flag == false
       - run: echo false
         if: steps.boolean_check3.outputs.flag == 'false'
+      - run: echo $HOUSE
+        env:
+          HOUSE: ${{ env.HOME }}
