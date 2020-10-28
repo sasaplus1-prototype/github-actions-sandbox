@@ -1,0 +1,12 @@
+name: repository name
+
+on:
+  - push
+  - pull_request_target
+
+jobs:
+  repository-name:
+    name: repository name
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${GITHUB_REPOSITORY}"
