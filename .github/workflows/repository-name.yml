@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${GITHUB_REPOSITORY}"
+      - run: echo "${GITHUB_REPOSITORY_OWNER}"
       - run: echo "${GITHUB_REF}"
       - run: echo "${GITHUB_BASE_REF}"
       - run: echo "${GITHUB_HEAD_REF}"
       - run: echo "${GITHUB_EVENT_NAME}"
       - run: echo "${GITHUB_EVENT_PATH}"
+      - run: echo "${GITHUB_EVENT}"
