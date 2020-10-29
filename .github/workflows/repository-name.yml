@@ -3,6 +3,7 @@ name: repository name
 on:
   - push
   - pull_request_target
+  - workflow_dispatch
 
 jobs:
   repository-name:
