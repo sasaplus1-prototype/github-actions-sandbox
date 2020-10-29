@@ -18,9 +18,11 @@ jobs:
       - run: echo "${GITHUB_EVENT_NAME}"
       - run: echo "${GITHUB_EVENT_PATH}"
       - run: echo "${GITHUB_EVENT}"
-      - run: echo "${DATA}"
+      - run: echo "${DATA1}" "${DATA2}"
         env:
-          DATA: ${{ github.event.push }}
-      - run: echo "${DATA}"
+          DATA1: ${{ github.event.push.ref }}
+          DATA2: ${{ github.event.push.repository.full_name }}
+      - run: echo "${DATA1}" "${DATA2}"
         env:
-          DATA: ${{ github.event.pull_request }}
+          DATA1: ${{ github.event.pull_request.base.repo.full_name }}
+          DATA2: ${{ github.event.pull_request.head.repo.full_name }}
