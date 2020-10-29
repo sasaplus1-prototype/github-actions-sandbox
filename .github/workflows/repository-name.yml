@@ -32,4 +32,4 @@ jobs:
           node-version: 14
       - run: |
           git fetch && git checkout "${GITHUB_REF#refs/heads/}"
-          git symbolic-ref --short HEAD
+      - run: git symbolic-ref --short HEAD
