@@ -36,14 +36,14 @@ jobs:
           PATH: ${{ steps.set_data2.outputs.path }}
           CDIR: ${{ steps.set_data3.outputs.cdir }}
       - run: echo $PATH | tr ':' '\n'
-      - run: echo "::add-path::/path/to/dir1"
-      - run: echo "::add-path::/path/to/dir2"
-      - run: echo '::add-path::/path/to/dir3'
+      - run: echo "/path/to/dir1" >> "$GITHUB_PATH"
+      - run: echo "/path/to/dir2" >> "$GITHUB_PATH"
+      - run: echo '/path/to/dir3' >> "$GITHUB_PATH"
       - run: echo $PATH | tr ':' '\n'
       - run: |
-          echo "::add-path::/path/to/dir4"
-          echo "::add-path::/path/to/dir5"
-          echo '::add-path::/path/to/dir6'
+          echo "/path/to/dir4" >> "$GITHUB_PATH"
+          echo "/path/to/dir5" >> "$GITHUB_PATH"
+          echo '/path/to/dir6' >> "$GITHUB_PATH"
       - run: echo $PATH | tr ':' '\n'
       - id: boolean_check1
         run: echo '::set-output name=flag::true'
