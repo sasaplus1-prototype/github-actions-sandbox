@@ -73,6 +73,7 @@ jobs:
         env:
           HOUSE: ${{ env.HOME }}
       - run: type -tP google-chrome
+        continue-on-error: true
       - run: |
           if [ 1 = 1 ]
           then
