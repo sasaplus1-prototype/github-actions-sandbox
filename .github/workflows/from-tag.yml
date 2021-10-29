@@ -1,0 +1,13 @@
+name: from-tag
+
+on:
+  push:
+    tags:
+      - '**'
+
+jobs:
+  from-tag:
+    name: from tag
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Hello!'
