@@ -12,12 +12,13 @@ jobs:
     steps:
       - uses: actions/github-script@v5
         with:
+          debug: true
           github-token: ${{ secrets.PAT }}
           script: |
             github.rest.git.createTag({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              tag: "tag-1-" + (Math.random() * 10000 >> 0),
+              tag: 'tag-1-' + (Math.random() * 10000 >> 0),
               message: '',
               object: context.sha,
               type: 'commit'
