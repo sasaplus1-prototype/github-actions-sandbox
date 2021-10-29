@@ -69,6 +69,14 @@ jobs:
         if: steps.boolean_check3.outputs.flag == false
       - run: echo false
         if: steps.boolean_check3.outputs.flag == 'false'
+      - id: boolean_check4
+        run: echo '::set-output name=flag::${{ toJSON(true) }}'
+      - run: echo false 
+        if: steps.boolean_check4.outputs.flag
+      - run: echo false
+        if: steps.boolean_check4.outputs.flag == false
+      - run: echo false
+        if: steps.boolean_check4.outputs.flag == 'false'
       - run: echo $HOUSE
         env:
           HOUSE: ${{ env.HOME }}
