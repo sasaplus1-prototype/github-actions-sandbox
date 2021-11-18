@@ -99,11 +99,11 @@ jobs:
             echo 2
           fi
         shell: bash
-      - uses: actions/github-script@v5
-        with:
-          github-token: ${{ secrets.PAT }}
-          script: |
-            github.request('POST /repos/${{ github.repository }}/git/refs', {
-              ref: `refs/tags/${ Math.random().toString().slice(2) }`,
-              sha: '${{ github.sha }}'
-            });
+    # - uses: actions/github-script@v5
+    #   with:
+    #     github-token: ${{ secrets.PAT }}
+    #     script: |
+    #       github.request('POST /repos/${{ github.repository }}/git/refs', {
+    #         ref: `refs/tags/${ Math.random().toString().slice(2) }`,
+    #         sha: '${{ github.sha }}'
+    #       });
