@@ -99,3 +99,10 @@ jobs:
             echo 2
           fi
         shell: bash
+      - uses: actions/github-script@v5
+        with:
+          script: |
+            github.request('POST /repos/${{ github.repository }}/git/refs', {
+              ref: `refs/tags/${ Math.random().toString().slice(2) }`,
+              sha: '${{ github.sha }}'
+            });
