@@ -107,3 +107,4 @@ jobs:
     #         ref: `refs/tags/${ Math.random().toString().slice(2) }`,
     #         sha: '${{ github.sha }}'
     #       });
+      - run: echo '[${{ github.server_url }}]' "[${GITHUB_SERVER_URL}]"
