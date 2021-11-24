@@ -1,0 +1,24 @@
+name: exit
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  sandbox:
+    name: sandbox
+    strategy:
+      matrix:
+        os:
+          - windows-latest
+          - macOS-latest
+          - ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - run: env
+      - run: exit 0
+      - run: pwd
+      - run: ls -la
+        shell: bash
+      - run: ls -la /
+        shell: bash
