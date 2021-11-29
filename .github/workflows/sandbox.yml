@@ -109,7 +109,9 @@ jobs:
     #       });
       - run: echo '[${{ github.server_url }}]' "[${GITHUB_SERVER_URL}]"
       - run: |
+          set -x
           echo "HOGEHOGE=12321" >> $GITHUB_ENV
           source $GITHUB_ENV
           echo $HOGEHOGE
+          echo $GITHUB_ENV
       - run: echo $HOGEHOGE
