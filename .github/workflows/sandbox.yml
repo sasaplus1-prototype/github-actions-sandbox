@@ -108,3 +108,8 @@ jobs:
     #         sha: '${{ github.sha }}'
     #       });
       - run: echo '[${{ github.server_url }}]' "[${GITHUB_SERVER_URL}]"
+      - run:
+          echo "HOGEHOGE=12321" >> $GITHUB_ENV
+          source $GITHUB_ENV
+          echo $HOGEHOGE
+      - run: echo $HOGEHOGE
