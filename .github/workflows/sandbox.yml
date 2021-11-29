@@ -114,4 +114,9 @@ jobs:
           source $GITHUB_ENV
           echo $HOGEHOGE
           echo $GITHUB_ENV
-      - run: echo $HOGEHOGE
+      - run: |
+          set -x
+          echo $HOGEHOGE
+          source $GITHUB_ENV
+          echo $HOGEHOGE
+          echo $GITHUB_ENV
