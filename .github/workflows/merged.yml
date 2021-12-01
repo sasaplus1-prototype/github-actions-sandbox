@@ -13,4 +13,8 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - run: echo "${GITHUB_BASE_REF}" "${GITHUB_HEAD_REF}"
+      - run: git log --all --graph --date=short
