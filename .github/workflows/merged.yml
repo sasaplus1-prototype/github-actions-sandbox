@@ -7,11 +7,10 @@ on:
     types:
       - closed
 
-if: github.event.pull_request.merged == true
-
 jobs:
   merged:
     name: merged
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - run: echo "${GITHUB_BASE_REF}" "${GITHUB_HEAD_REF}"
