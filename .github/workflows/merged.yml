@@ -17,8 +17,11 @@ jobs:
         with:
           fetch-depth: 0
       - run: echo "${GITHUB_BASE_REF}" "${GITHUB_HEAD_REF}"
+      - run: echo ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }}
       - run: git branch -a
       - run: git tag
       - run: git log --all --graph --date=short
+      - run: git show ${{ github.event.pull_request.base.sha }}
+      - run: git show ${{ github.event.pull_request.head.sha }}
       - run: git show "${GITHUB_BASE_REF}" 
       - run: git show "${GITHUB_HEAD_REF}" 
