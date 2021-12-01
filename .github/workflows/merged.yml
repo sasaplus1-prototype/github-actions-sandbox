@@ -17,4 +17,6 @@ jobs:
         with:
           fetch-depth: 0
       - run: echo "${GITHUB_BASE_REF}" "${GITHUB_HEAD_REF}"
+      - run: git branch -a
+      - run: git tag
       - run: git log --all --graph --date=short
