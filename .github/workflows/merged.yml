@@ -3,7 +3,7 @@ name: merged
 on:
   pull_request:
     branches:
-      - '*'
+      - 'support/v*.*.*'
     types:
       - closed
 
