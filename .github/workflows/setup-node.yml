@@ -1,0 +1,25 @@
+name: sandbox
+
+on:
+  - push
+
+jobs:
+  setup-node:
+    name: multiple setup-node
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: node -v
+      - run: npm -v
+      - run: yarn -v
+      - run: yarn add react
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 10
+      - run: node -v
+      - run: npm -v
+      - run: yarn -v
+      - run: yarn add react
