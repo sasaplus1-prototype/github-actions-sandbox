@@ -120,3 +120,4 @@ jobs:
           source $GITHUB_ENV
           echo $HOGEHOGE
           echo $GITHUB_ENV
+      - run: echo "${{ github.ref_name }}"
