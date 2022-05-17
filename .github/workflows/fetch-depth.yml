@@ -1,0 +1,14 @@
+name: fetch-depth
+
+on:
+  - pull_request
+
+jobs:
+  fetch-depth:
+    name: just depth
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: ${{ github.event.pull_request.commits }}
+      - run: git log
