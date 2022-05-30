@@ -13,7 +13,7 @@ jobs:
           - { id: 2 }
           - { id: 3 }
     outputs:
-      stdout: ${{ steps.out.outputs.out }}
+      stdout: ${{ steps.out.outputs.test }}
     steps:
       - run: echo "::set-output name=test::hello-${{ matrix.id }}"
         id: out
