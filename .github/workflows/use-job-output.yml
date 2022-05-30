@@ -13,9 +13,9 @@ jobs:
           - { id: 2 }
           - { id: 3 }
     outputs:
-      stdout: ${{ steps.out.outputs.* }}
+      stdout: ${{ steps.out.outputs.test }}
     steps:
-      - run: echo "::set-output name=test-${{ matrix.id }}::hello-${{ matrix.id }}"
+      - run: echo "::set-output name=test::${{ steps.out.outputs.test }},hello-${{ matrix.id }}"
         id: out
   print:
     runs-on: ubuntu-latest
