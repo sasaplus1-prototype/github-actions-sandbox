@@ -13,13 +13,12 @@ jobs:
           - { id: 2 }
           - { id: 3 }
     outputs:
-      stdout: ${{ steps.out.outputs.test }}
+      stdout: ${{ steps.out.outputs.* }}
     steps:
-      - run: echo "::set-output name=test::hello-${{ matrix.id }}"
+      - run: echo "::set-output name=test-${{ matrix.id }}::hello-${{ matrix.id }}"
         id: out
   print:
     runs-on: ubuntu-latest
     needs: output
     steps:
       - run: echo "${{ needs.output.outputs.stdout }}"
-      - run: echo "${{ fromJson(needs.output.outputs.stdout) }}"
