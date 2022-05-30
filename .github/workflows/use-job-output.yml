@@ -25,3 +25,4 @@ jobs:
       - uses: actions/download-artifact@v3
       - run: ls -l
       - run: ls -l file-*
+      - run: cat file-*/file.txt
