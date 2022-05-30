@@ -12,14 +12,16 @@ jobs:
           - { id: 1 }
           - { id: 2 }
           - { id: 3 }
-    outputs:
-      stdout: ${{ steps.out.outputs.test }}
     steps:
-      - run: echo "::set-output name=test::hello-${{ matrix.id }}"
-        id: out
+      - run: echo 'hello-${{ matrix.id }}' >> file.txt
+      - uses: actions/upload-artifact@v3
+        with:
+          name: file-${{ matrix.id }}
+          path: file.txt
   print:
     runs-on: ubuntu-latest
     needs: output
     steps:
-      - run: echo "${{ needs.output.outputs.stdout }}"
-      - run: echo "${{ needs.output.outputs.* }}"
+      - uses: actions/download-artifact@v3
+      - run: ls -l
+      - run: ls -l file-*
