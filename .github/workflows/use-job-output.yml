@@ -6,11 +6,12 @@ on:
 jobs:
   output:
     runs-on: ubuntu-latest
-    matrix:
-      include:
-        - { id: 1 }
-        - { id: 2 }
-        - { id: 3 }
+    strategy:
+      matrix:
+        include:
+          - { id: 1 }
+          - { id: 2 }
+          - { id: 3 }
     outputs:
       stdout: ${{ steps.out.outputs.test }}
     steps:
