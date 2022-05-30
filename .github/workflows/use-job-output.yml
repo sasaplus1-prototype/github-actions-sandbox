@@ -22,3 +22,4 @@ jobs:
     needs: output
     steps:
       - run: echo "${{ needs.output.outputs.* }}"
+      - run: echo "${{ needs.output.outputs.stdout }}"
