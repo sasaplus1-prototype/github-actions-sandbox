@@ -121,3 +121,19 @@ jobs:
           echo $HOGEHOGE
           echo $GITHUB_ENV
       - run: echo "${{ github.ref_name }}"
+      - run: echo "::set-output name=result::0"
+        id: diff1
+      - run: echo "::set-output name=result::1"
+        id: diff2
+      - run: echo hello
+        if: steps.diff1.outputs.result
+      - run: echo hello
+        if: steps.diff1.outputs.result == 0
+      - run: echo hello
+        if: steps.diff1.outputs.result == '0'
+      - run: echo hello
+        if: steps.diff2.outputs.result
+      - run: echo hello
+        if: steps.diff2.outputs.result == 1
+      - run: echo hello
+        if: steps.diff2.outputs.result == '1'
