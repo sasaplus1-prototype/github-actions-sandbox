@@ -145,3 +145,10 @@ jobs:
         with:
           script: |
             console.log("Hello");
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const globber = await glob.create('**');
+            const files = await globber.glob();
+
+            console.log(files);
