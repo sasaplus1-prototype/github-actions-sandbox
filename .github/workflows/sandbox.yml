@@ -137,15 +137,3 @@ jobs:
         if: steps.diff2.outputs.result == 1
       - run: echo hello
         if: steps.diff2.outputs.result == '1'
-  test:
-    name: test
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo '${{ toJSON(1) }}'
-      - run: echo '${{ toJSON(false) }}'
-      - run: echo '${{ toJSON([ 123, 456 ]) }}'
-    # - run: echo '${{ toJSON({ aaa: 123 }) }}'
-      - run: echo '${{ fromJSON(1) }}'
-      - run: echo '${{ fromJSON(false) }}'
-      - run: echo '${{ fromJSON("[ 123, 456 ]") }}'
-    # - run: echo '${{ fromJSON("{ \"aaa\": 123 }") }}'
