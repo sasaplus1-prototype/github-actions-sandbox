@@ -148,4 +148,4 @@ jobs:
       - run: echo '${{ fromJSON(1) }}'
       - run: echo '${{ fromJSON(false) }}'
       - run: echo '${{ fromJSON("[ 123, 456 ]") }}'
-      - run: echo '${{ fromJSON("{ \"aaa\": 123 }") }}'
+    # - run: echo '${{ fromJSON("{ \"aaa\": 123 }") }}'
