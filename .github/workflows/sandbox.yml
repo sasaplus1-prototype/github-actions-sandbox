@@ -153,3 +153,10 @@ jobs:
             const files = await globber.glob();
 
             console.log(files);
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const globber = await glob.create('.github/**');
+            const files = await globber.glob();
+
+            console.log(files);
