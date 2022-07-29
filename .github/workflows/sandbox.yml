@@ -137,3 +137,11 @@ jobs:
         if: steps.diff2.outputs.result == 1
       - run: echo hello
         if: steps.diff2.outputs.result == '1'
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            console.log("Hello");
