@@ -144,7 +144,7 @@ jobs:
       - run: echo '${{ toJSON(1) }}'
       - run: echo '${{ toJSON(false) }}'
       - run: echo '${{ toJSON([ 123, 456 ]) }}'
-      - run: echo '${{ toJSON({ aaa: 123 }) }}'
+    # - run: echo '${{ toJSON({ aaa: 123 }) }}'
       - run: echo '${{ fromJSON(1) }}'
       - run: echo '${{ fromJSON(false) }}'
       - run: echo '${{ fromJSON("[ 123, 456 ]") }}'
