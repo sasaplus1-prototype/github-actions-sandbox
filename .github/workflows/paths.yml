@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - 'hoge/**'
+  pull_request:
+    paths:
+      - 'hoge/**'
 
 jobs:
   sandbox:
