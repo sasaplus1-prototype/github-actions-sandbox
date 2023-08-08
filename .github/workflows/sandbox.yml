@@ -138,6 +138,7 @@ jobs:
         if: steps.diff2.outputs.result == 1
       - run: echo hello
         if: steps.diff2.outputs.result == '1'
+      - run: ex --help
   test:
     name: test
     runs-on: ubuntu-latest
