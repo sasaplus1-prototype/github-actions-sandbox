@@ -139,6 +139,8 @@ jobs:
       - run: echo hello
         if: steps.diff2.outputs.result == '1'
       - run: ex --help
+      - run: sed -i .bak -e 's/github/GitHub/' README.md
+      - run: git diff
   test:
     name: test
     runs-on: ubuntu-latest
