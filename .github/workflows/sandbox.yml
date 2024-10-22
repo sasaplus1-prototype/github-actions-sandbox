@@ -167,6 +167,12 @@ jobs:
             console.log(files);
   command:
     name: command
+    strategy:
+      matrix:
+        os:
+          - windows-2022
+          - macos-14
+          - ubuntu-22.04
     runs-on: ubuntu-latest
     steps:
       - run: type rsync
