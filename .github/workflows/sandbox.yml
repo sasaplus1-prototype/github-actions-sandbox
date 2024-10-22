@@ -165,3 +165,13 @@ jobs:
             const files = await globber.glob();
 
             console.log(files);
+  command:
+    name: command
+    runs-on: ubuntu-latest
+    steps:
+      - run: type rsync
+        continue-on-error: true
+      - run: type cpio
+        continue-on-error: true
+      - run: type pax
+        continue-on-error: true
