@@ -181,3 +181,5 @@ jobs:
         continue-on-error: true
       - run: type pax
         continue-on-error: true
+      - run: type install
+        continue-on-error: true
