@@ -1,0 +1,10 @@
+name: input value
+
+on:
+  - push
+
+jobs:
+  input-value:
+  runs-on: ubuntu-latest
+  steps:
+    - run: echo '${{ inputs.nothing }}'
